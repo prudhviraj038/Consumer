@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/custom_dailog_background"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <co.unsap.consumer.FontUtilities.CustomTextView
+        android:id="@+id/tv_tittle_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Enter Comments"
+        android:textColor="@color/textColor"
+        android:textSize="17sp"
+        app:font_name="RobotoRegular" />
+
+
+    <EditText
+        android:id="@+id/et_comments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        android:inputType="textPersonName"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorDivider"
+        android:orientation="vertical"></LinearLayout>
+
+    <co.unsap.consumer.FontUtilities.CustomTextView
+        android:id="@+id/tv_message_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="Attach images if needed"
+        android:textColor="@color/textColor"
+        android:textSize="12sp"
+        app:font_name="RobotoRegular" />
+
+    <ImageView
+        android:id="@+id/iv_add"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="15dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/image_placeholder" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/bottom_button_style"
+        android:divider="@drawable/vertical_divider"
+        android:orientation="horizontal"
+        android:showDividers="middle">
+
+        <co.unsap.consumer.FontUtilities.CustomButton
+            android:id="@+id/btn_yes"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_continue"
+            android:clickable="true"
+            android:text="Continue"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            app:font_name="RobotoRegular" />
+
+        <co.unsap.consumer.FontUtilities.CustomButton
+            android:id="@+id/btn_no"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_continue"
+            android:clickable="true"
+            android:text="Cancel"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            app:font_name="RobotoRegular" />
+
+    </LinearLayout>
+
+</LinearLayout>

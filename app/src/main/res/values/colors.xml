@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="textColor">#455a64</color>
+    <color name="textColorLight">#607d8b</color>
+    <color name="colorSigninbg">#eceff1</color>
+    <color name="colorDivider">#cfd8dc</color>
+    <color name="colorbtn">#2196f3</color>
+    <color name="colorbtnpressed">#AA2196F3</color>
+    <color name="colorgGradientStr">#6077EB</color>
+    <color name="colorgGradientEnd">#00BBDA</color>
+
+
+</resources>
