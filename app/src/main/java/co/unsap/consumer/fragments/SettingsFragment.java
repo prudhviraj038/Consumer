@@ -72,12 +72,13 @@ public class SettingsFragment extends Fragment {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //logout user and opening log in activity
                 SessionManager.setSessionId(getContext(),"0");
                 Intent intent = new Intent(getContext(), LoginActivity.class);
                 startActivity(intent);
             }
         });
-     // getServiceRequests();
+
 
         return view;
     }
