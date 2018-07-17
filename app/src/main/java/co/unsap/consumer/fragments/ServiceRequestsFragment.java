@@ -1,14 +1,15 @@
 package co.unsap.consumer.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -24,11 +25,12 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import co.unsap.consumer.Constants;
+import co.unsap.consumer.DetailsActivity;
 import co.unsap.consumer.ProgressInterface;
+import co.unsap.consumer.ProposalActivity;
 import co.unsap.consumer.R;
 import co.unsap.consumer.ServiceRequestsAdapter;
 import co.unsap.consumer.SessionManager;
-import co.unsap.consumer.datamodels.Service;
 import co.unsap.consumer.datamodels.ServiceRequest;
 
 /**
@@ -72,6 +74,15 @@ public class ServiceRequestsFragment extends Fragment {
 
         service_request_list = (ListView) view.findViewById(R.id.service_requests_listview);
 
+        service_request_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getActivity(), DetailsActivity.class);
+                intent.putExtra("serviceRequest",serviceRequests.get(i));
+                startActivity(intent);
+            }
+        });
+
         serviceRequestsAdapter = new ServiceRequestsAdapter(getActivity(),serviceRequests);
 
         service_request_list.setAdapter(serviceRequestsAdapter);
@@ -105,7 +116,7 @@ public class ServiceRequestsFragment extends Fragment {
 
                 progressInterface.hideProgress();
 
-                Log.e("response",response.toString());
+
 
                 try {
                     if(response.getString("error_code").equals("0")){
@@ -115,6 +126,7 @@ public class ServiceRequestsFragment extends Fragment {
                         for(int i=0;i<temp_services.length();i++) {
 
                             JSONObject jsonObject = temp_services.getJSONObject(i);
+                            Log.e("object",jsonObject.toString());
                             ServiceRequest serviceRequest = new ServiceRequest(jsonObject);
                             serviceRequests.add(serviceRequest);
 

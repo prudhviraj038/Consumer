@@ -168,6 +168,7 @@ public class HomeActivity extends AppCompatActivity implements ProgressInterface
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
 
+                openNavigation();
                 mViewPager.setCurrentItem(i);
 
 

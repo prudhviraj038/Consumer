@@ -25,7 +25,6 @@
         <activity android:name=".LoginActivity"/>
         <activity android:name=".SubServiceSelectionActivity"/>
         <activity android:name=".NewServiceRequestActivity"/>
-
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,6 +33,12 @@
             </intent-filter>
 
         </activity>
+        <activity android:name=".ProposalActivity"/>
+        <activity android:name=".DetailsActivity"/>
+        <activity android:name=".ChatActivity" android:windowSoftInputMode="stateHidden"/>
+
+
+
 
     </application>
 

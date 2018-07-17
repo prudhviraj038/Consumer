@@ -43,6 +43,14 @@ public class TabsAdapter extends FragmentStatePagerAdapter {
             return serviceRequestsFragment;
         }
 
+
+        case 2:{
+
+
+            NotificationFragment notificationFragment = NotificationFragment.newInstance(position);
+            return notificationFragment;
+        }
+
         default: {
             HomeFragment demoFragment = HomeFragment.newInstance(position);
 
@@ -59,6 +67,6 @@ public class TabsAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 2;
+        return 3;
     }
 }

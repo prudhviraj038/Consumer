@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -20,11 +21,13 @@ import co.unsap.consumer.datamodels.ServiceRequest;
 public class ServiceRequestsAdapter extends BaseAdapter  {
     Context context;
     ArrayList<ServiceRequest> menuItems;
+    String string;
 
 
 
 
     private static LayoutInflater inflater=null;
+
     public ServiceRequestsAdapter(Context mainActivity, ArrayList<ServiceRequest> menuItems) {
         // TODO Auto-generated constructor stubcontext=mainActivity;
         this.context = mainActivity;
@@ -56,8 +59,8 @@ public class ServiceRequestsAdapter extends BaseAdapter  {
 
     public class Holder
     {
-        TextView cur_symbol,cur_name;
-        ImageView country_flag;
+        TextView problemtitle,problem,problemdate,status_text;
+        ImageView problemimage;
     }
 
 
@@ -69,23 +72,49 @@ public class ServiceRequestsAdapter extends BaseAdapter  {
 
         View rowView;
 
-        rowView = inflater.inflate(R.layout.services_item, null);
+        rowView = inflater.inflate(R.layout.servicerequest_item, null);
 
 
-        holder.cur_symbol=(TextView) rowView.findViewById(R.id.menu_iem);
-        holder.cur_symbol.setText(menuItems.get(position).message);
+        holder.problemtitle=(TextView) rowView.findViewById(R.id.problem_title);
+        holder.problemtitle.setText(menuItems.get(position).serviceName);
 
-        holder.country_flag = (ImageView) rowView.findViewById(R.id.menu_icon);
-
-        if(menuItems.get(position).images.length()>0)
-            try {
+        holder.problemimage = (ImageView) rowView.findViewById(R.id.problem_image);
 
 
-                Picasso.with(context).load(menuItems.get(position).images.getJSONObject(0).getString("secureFileUrl")).into(holder.country_flag);
+        if(menuItems.get(position).images.size()>0)
+        Picasso.with(context).load(menuItems.get(position).images.get(0).image_url).into(holder.problemimage);
 
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+
+        holder.problem = (TextView)rowView.findViewById(R.id.problem);
+        holder.problem.setText(menuItems.get(position).subServiceName);
+
+        holder.problemdate = (TextView)rowView.findViewById(R.id.problem_date);
+        holder.problemdate.setText(menuItems.get(position).scheduleOn);
+
+        holder.status_text = (TextView)rowView.findViewById(R.id.age);
+       string=menuItems.get(position).serviceType;
+      //  ||||
+       if (string.equals("N")){
+          // Toast.makeText(context,"NEW",Toast.LENGTH_LONG).show();
+           holder.status_text.setText("New");
+       }
+       else if (string.equals("A")){
+           holder.status_text.setText("Assigned");
+        }
+        else if (string.equals("C"))
+        {
+            holder.status_text.setText("Confirmed");
+        }
+        else if (string.equals("F")){
+           holder.status_text.setText("Completed");
+       }
+       else if (string.equals("D")){
+            holder.status_text.setText("Closed");
+       }
+
+
+
+
 
 
         return rowView;

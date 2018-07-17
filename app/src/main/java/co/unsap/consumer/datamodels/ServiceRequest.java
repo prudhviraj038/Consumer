@@ -4,12 +4,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ServiceRequest  {
+public class ServiceRequest implements Serializable{
 
 
-  public  String _id;
+    public  String _id;
     public String senderUserId;
     public String requestStatus;
     public String hasImage;
@@ -23,7 +24,8 @@ public class ServiceRequest  {
     public  String message;
     public String subject;
     public String requestCode;
-    public JSONArray images;
+    public  ArrayList<RequestImages> images;
+
     public String lat;
     public String lon;
     public String address;
@@ -31,7 +33,7 @@ public class ServiceRequest  {
     public String scheduleOn;
     public String receiverProfilePic;
     public String updatedAt;
-    public JSONArray proposals;
+    public ArrayList<Proposal> proposals;
 
 
     public ServiceRequest(JSONObject jsonObject){
@@ -63,43 +65,22 @@ public class ServiceRequest  {
             serviceType = jsonObject.getJSONObject("request").getString("serviceType");
             scheduleOn = jsonObject.getJSONObject("request").getString("scheduleOn");
 
-            images = new JSONArray();
-            proposals = new JSONArray();
+            images = new ArrayList<>();
+            proposals = new ArrayList<>();
 
-            images = jsonObject.getJSONArray("requestFiles");
-            proposals = jsonObject.getJSONArray("proposals");
+            for(int i=0;i<jsonObject.getJSONArray("proposals").length();i++){
 
-//        self.updatedAt = [[dictionary objectForKey:@"request"] valueForKey:@"updatedAt"];
-//        self.lat = [[dictionary objectForKey:@"request"] objectForKey:@"latitude"];
-//        self.lon = [[dictionary objectForKey:@"request"] objectForKey:@"longitude"];
-//        self.address = [[dictionary objectForKey:@"request"] objectForKey:@"address1"];
-//
-//        self.requestCode = [[dictionary objectForKey:@"request"] valueForKey:@"requestNumber"];
-//        self.senderUserId = [[dictionary objectForKey:@"request"] valueForKey:@"senderUserId"];
-//        self.requestStatus = [[dictionary objectForKey:@"request"] valueForKey:@"requestStatus"];
-//        self.hasImage = [[dictionary objectForKey:@"request"] valueForKey:@"hasImage"];
-//        self.subServiceId = [[dictionary objectForKey:@"request"] valueForKey:@"subServiceId"];
-//        self.subServiceName = [[dictionary objectForKey:@"request"] valueForKey:@"subServiceName"];
-//        self.serviceName = [[dictionary objectForKey:@"request"] valueForKey:@"serviceName"];
-//        self.serviceId = [[dictionary objectForKey:@"request"] valueForKey:@"serviceId"];
-//        self.receiverName = [[dictionary objectForKey:@"request"] valueForKey:@"receiverName"];
-//        self.receiverName = [[NSString stringWithFormat:@"%@",self.receiverName] capitalizedString];
-//
-//        self.receiverProfilePic = [[dictionary objectForKey:@"request"] valueForKey:@"receiverProfilePic"];
-//
-//        self.receiverUserId = [[dictionary objectForKey:@"request"] valueForKey:@"receiverUserId"];
-//
-//        self.senderName = [[dictionary objectForKey:@"request"] valueForKey:@"senderName"];
-//        self.senderName = [[NSString stringWithFormat:@"%@",self.senderName] capitalizedString];
-//
-//        self.message = [[dictionary objectForKey:@"request"] valueForKey:@"message"];
-//        self.subject = [[dictionary objectForKey:@"request"] valueForKey:@"subject"];
-//        self.serviceType = [[dictionary objectForKey:@"request"] valueForKey:@"serviceType"];
-//        self.scheduleOn = [[dictionary objectForKey:@"request"] valueForKey:@"scheduleOn"];
-//
-//        self.images   = [dictionary objectForKey:@"requestFiles"];
-//
-//        self.proposals = [dictionary objectForKey:@"proposals"];
+                proposals.add(new Proposal(jsonObject.getJSONArray("proposals").getJSONObject(i),"service"));
+            }
+
+
+            if(jsonObject.get("requestFiles").getClass()==JSONArray.class) {
+
+                for (int i = 0; i < jsonObject.getJSONArray("requestFiles").length(); i++) {
+
+                    images.add(new RequestImages(jsonObject.getJSONArray("requestFiles").getJSONObject(i)));
+                }
+            }
 
 
 
@@ -107,6 +88,9 @@ public class ServiceRequest  {
             e.printStackTrace();
         }
     }
+
+
+
 
 }
 
