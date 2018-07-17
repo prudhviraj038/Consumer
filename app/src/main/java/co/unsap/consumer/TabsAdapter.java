@@ -8,6 +8,7 @@ import android.util.Log;
 import co.unsap.consumer.fragments.DemoFragment;
 import co.unsap.consumer.fragments.HomeFragment;
 import co.unsap.consumer.fragments.ServiceRequestsFragment;
+import co.unsap.consumer.fragments.SettingsFragment;
 
 /**
  * Created by mac on 3/18/17.
@@ -50,6 +51,11 @@ public class TabsAdapter extends FragmentStatePagerAdapter {
             NotificationFragment notificationFragment = NotificationFragment.newInstance(position);
             return notificationFragment;
         }
+        case 3: {
+
+            SettingsFragment settingsFragment  = SettingsFragment.newInstance(position);
+            return settingsFragment;
+        }
 
         default: {
             HomeFragment demoFragment = HomeFragment.newInstance(position);
@@ -67,6 +73,6 @@ public class TabsAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 4;
     }
 }
