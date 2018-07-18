@@ -50,11 +50,7 @@ public class ReferFriendFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_referafriend, container, false);
-        String shareBody = "Look at this awesome app for aspiring service Providers! Use this Reference Code : https://www.u-snap.co/";
-        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-        sharingIntent.setType("text/plain");
-        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-        startActivity(Intent.createChooser(sharingIntent, getResources().getString(R.string.share_using)));
+
 
 
         return view;

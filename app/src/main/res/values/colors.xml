@@ -13,7 +13,7 @@
     <color name="setting_activity_bgcolor">#f8f8f8</color>
     <color name="setting_activity_bgcolor2">#F0F0F0</color>
     <color name="colorgGradientStr">#6077EB</color>
-    <color name="colorgGradientEnd">#00BBDA</color>
+    <color name="colorgGradientEnd">#00bbda</color>
 
 
 </resources>

@@ -181,6 +181,12 @@ public class HomeActivity extends AppCompatActivity implements ProgressInterface
                 }
                 else if (mViewPager.getCurrentItem()==3){
                     page_title.setText("Refer a Friend");
+                    String shareBody = "Look at this awesome app for aspiring service Providers! Use this Reference Code : https://www.u-snap.co/";
+                    Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                    sharingIntent.setType("text/plain");
+                    sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                    sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Email Subject");
+                    startActivity(sharingIntent);
                 }
                 else {
                     page_title.setText("Settings");

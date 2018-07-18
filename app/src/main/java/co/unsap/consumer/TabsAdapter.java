@@ -55,7 +55,7 @@ public class TabsAdapter extends FragmentStatePagerAdapter {
         case 3: {
 
             ReferFriendFragment referFriendFragment = ReferFriendFragment.newInstance(position);
-            Log.e("SHARING","Refering a friend");
+            Log.e("SHARING","referFriendFragment is called ");
             return referFriendFragment;
         }
         case 4:{
