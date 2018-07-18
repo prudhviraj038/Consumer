@@ -9,6 +9,9 @@
     <color name="colorDivider">#cfd8dc</color>
     <color name="colorbtn">#2196f3</color>
     <color name="colorbtnpressed">#AA2196F3</color>
+    <color name="white_bg">#ffffff</color>
+    <color name="setting_activity_bgcolor">#f8f8f8</color>
+    <color name="setting_activity_bgcolor2">#F0F0F0</color>
     <color name="colorgGradientStr">#6077EB</color>
     <color name="colorgGradientEnd">#00BBDA</color>
 
