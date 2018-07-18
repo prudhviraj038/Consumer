@@ -7,6 +7,7 @@ import android.util.Log;
 
 import co.unsap.consumer.fragments.DemoFragment;
 import co.unsap.consumer.fragments.HomeFragment;
+import co.unsap.consumer.fragments.ReferFriendFragment;
 import co.unsap.consumer.fragments.ServiceRequestsFragment;
 import co.unsap.consumer.fragments.SettingsFragment;
 
@@ -53,6 +54,11 @@ public class TabsAdapter extends FragmentStatePagerAdapter {
         }
         case 3: {
 
+            ReferFriendFragment referFriendFragment = ReferFriendFragment.newInstance(position);
+            Log.e("SHARING","Refering a friend");
+            return referFriendFragment;
+        }
+        case 4:{
             SettingsFragment settingsFragment  = SettingsFragment.newInstance(position);
             return settingsFragment;
         }
@@ -73,6 +79,6 @@ public class TabsAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 4;
+        return 5;
     }
 }

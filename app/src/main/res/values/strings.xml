@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">U-Snap</string>
     <string name="google_api_key">AIzaSyBKuqh2BGYBvGzQYTkPUYX3QDn6oEmahxk</string>
+    <string name="share_using">U-Snap</string>
 
 </resources>
