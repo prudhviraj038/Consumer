@@ -170,6 +170,22 @@ public class HomeActivity extends AppCompatActivity implements ProgressInterface
 
                 openNavigation();
                 mViewPager.setCurrentItem(i);
+                if (mViewPager.getCurrentItem()==0){
+                    page_title.setText("Home");
+                }
+                else if (mViewPager.getCurrentItem()==1){
+                    page_title.setText("Service Requests");
+                }
+                else if (mViewPager.getCurrentItem()==2){
+                    page_title.setText("Notifications");
+                }
+                else if (mViewPager.getCurrentItem()==3){
+                    page_title.setText("Refer a Friend");
+                }
+                else {
+                    page_title.setText("Settings");
+                }
+
 
 
             }
