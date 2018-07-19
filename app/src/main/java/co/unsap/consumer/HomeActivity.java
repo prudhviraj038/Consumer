@@ -185,7 +185,7 @@ public class HomeActivity extends AppCompatActivity implements ProgressInterface
                     Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
                     sharingIntent.setType("text/plain");
                     sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-                    sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Email Subject");
+                    sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Share with");
                     startActivity(sharingIntent);
                 }
                 else {
