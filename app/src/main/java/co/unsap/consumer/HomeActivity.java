@@ -180,6 +180,9 @@ public class HomeActivity extends AppCompatActivity implements ProgressInterface
                 openNavigation();
 
                 if (i == 3) {
+
+
+
                     String shareBody = "Look at this awesome app for aspiring service Providers! Use this Reference Code : https://www.u-snap.co/";
                     Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
                     sharingIntent.setType("text/plain");
