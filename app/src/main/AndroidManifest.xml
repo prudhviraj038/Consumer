@@ -19,12 +19,14 @@
 
         <activity android:name=".SignUpActivity">
                     </activity>
-        <activity android:name=".TutorialActivity"/>
+        <activity android:name=".TutorialActivity" android:screenOrientation="portrait"/>
         <activity android:name=".HomeActivity"/>
         <activity android:name=".VerificationCodeActivity"/>
         <activity android:name=".LoginActivity"/>
         <activity android:name=".SubServiceSelectionActivity"/>
         <activity android:name=".NewServiceRequestActivity"/>
+        <activity android:name=".ActivitySearch"/>
+
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -242,10 +242,11 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-    private void navigateToVerificastion(String userId){
+    private void navigateToVerificastion(String userId,String message){
 
         Intent intent = new Intent(this,VerificationCodeActivity.class);
         intent.putExtra("userId",userId);
+        intent.putExtra("userMessage",message);
         startActivityForResult(intent, 100);
 
     }
@@ -296,7 +297,7 @@ public class LoginActivity extends AppCompatActivity {
 
                // showAlert("Success",response.toString());
 
-                navigateToVerificastion(user_id);
+                navigateToVerificastion(user_id,response.toString());
 
 
 

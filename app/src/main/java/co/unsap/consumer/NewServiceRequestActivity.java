@@ -107,7 +107,7 @@ public class NewServiceRequestActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.e("on","result");
 
-        if (requestCode == 1) {
+        if (requestCode == 1 ) {
             if (resultCode == RESULT_OK) {
                 Place place = PlaceAutocomplete.getPlace(this, data);
                 Log.i("tag", "Place: " + place.getAddress());
@@ -134,9 +134,11 @@ public class NewServiceRequestActivity extends AppCompatActivity {
             // or get a single image only
             Image image = ImagePicker.getFirstImageOrNull(data);
             selected_image = image;
-            addRequestBottomSheet.updateImages(image);
+            //addRequestBottomSheet.updateImages(image);
 
         }
+
+
     }
 
 

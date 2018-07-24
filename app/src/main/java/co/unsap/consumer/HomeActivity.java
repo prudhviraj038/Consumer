@@ -90,6 +90,14 @@ public class HomeActivity extends AppCompatActivity implements ProgressInterface
         });
 
         btn_edit = (TextView) v.findViewById(R.id.tv_edit);
+        btn_edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this,ActivitySearch.class);
+                startActivity(intent);
+            }
+
+        });
 
         getSupportActionBar().setCustomView(v, layoutParams);
         Toolbar parent = (Toolbar) v.getParent();
@@ -152,6 +160,7 @@ public class HomeActivity extends AppCompatActivity implements ProgressInterface
         setupHeader();
 
         ArrayList<MenuItem> menuItems = new ArrayList<>();
+        menuItems.add(new MenuItem("Home","",R.drawable.home_icon));
         menuItems.add(new MenuItem("My Favorites","",R.drawable.ic_myfav));
         menuItems.add(new MenuItem("Service Requests","",R.drawable.ic_servicerequests));
         menuItems.add(new MenuItem("Notifications","",R.drawable.ic_notifications));
@@ -169,31 +178,32 @@ public class HomeActivity extends AppCompatActivity implements ProgressInterface
 
 
                 openNavigation();
-                mViewPager.setCurrentItem(i);
-                if (mViewPager.getCurrentItem()==0){
-                    page_title.setText("Home");
-                }
-                else if (mViewPager.getCurrentItem()==1){
-                    page_title.setText("Service Requests");
-                }
-                else if (mViewPager.getCurrentItem()==2){
-                    page_title.setText("Notifications");
-                }
-                else if (mViewPager.getCurrentItem()==3){
-                    page_title.setText("Refer a Friend");
+
+                if (i == 3) {
                     String shareBody = "Look at this awesome app for aspiring service Providers! Use this Reference Code : https://www.u-snap.co/";
                     Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
                     sharingIntent.setType("text/plain");
                     sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
                     sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Share with");
                     startActivity(sharingIntent);
+                } else {
+
+
+                    if(i>3)
+                        i=i-1;
+
+                    mViewPager.setCurrentItem(i);
+
+                    if (mViewPager.getCurrentItem() == 0) {
+                        page_title.setText("Home");
+                    } else if (mViewPager.getCurrentItem() == 1) {
+                        page_title.setText("Service Requests");
+                    } else if (mViewPager.getCurrentItem() == 2) {
+                        page_title.setText("Notifications");
+                    } else if (mViewPager.getCurrentItem() == 3) {
+                        page_title.setText("Settings");
+                    }
                 }
-                else {
-                    page_title.setText("Settings");
-                }
-
-
-
             }
         });
 
@@ -213,7 +223,8 @@ public class HomeActivity extends AppCompatActivity implements ProgressInterface
     private void setupHeader(){
 
         back_btn.setVisibility(View.GONE);
-        btn_edit.setVisibility(View.GONE);
+        btn_edit.setVisibility(View.VISIBLE);
+        btn_edit.setText("Search");
         page_title.setText("Home");
 
 

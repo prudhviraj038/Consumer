@@ -76,6 +76,7 @@ public class SubServiceSelectionActivity extends AppCompatActivity {
 
         page_title = (TextView) v.findViewById(R.id.page_title);
 
+
         menu_btn = (LinearLayout) v.findViewById(R.id.btn_menu_container);
         menu_btn.setVisibility(View.GONE);
 

@@ -27,6 +27,7 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 /**
  * Created by mac on 7/2/18.
@@ -42,6 +43,11 @@ public class VerificationCodeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_verification);
 
         progress_holder = (LinearLayout) findViewById(R.id.progress_holder);
+        TextView message = (TextView) findViewById(R.id.message);
+
+        if(getIntent().hasExtra("userMessage")) {
+            message.setText(getIntent().getStringExtra("userMessage"));
+        }
 
         if(getSupportActionBar()!=null)
             getSupportActionBar().hide();
