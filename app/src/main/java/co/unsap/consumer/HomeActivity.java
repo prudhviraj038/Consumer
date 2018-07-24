@@ -228,6 +228,10 @@ public class HomeActivity extends AppCompatActivity implements ProgressInterface
         page_title.setText("Home");
 
 
+
+
+
+
     }
 
 
