@@ -179,7 +179,7 @@ public class HomeActivity extends AppCompatActivity implements ProgressInterface
 
                 openNavigation();
 
-                if (i == 3) {
+                if (i == 4) {
 
 
 
@@ -192,7 +192,7 @@ public class HomeActivity extends AppCompatActivity implements ProgressInterface
                 } else {
 
 
-                    if(i>3)
+                    if(i>4)
                         i=i-1;
 
                     mViewPager.setCurrentItem(i);
@@ -200,10 +200,12 @@ public class HomeActivity extends AppCompatActivity implements ProgressInterface
                     if (mViewPager.getCurrentItem() == 0) {
                         page_title.setText("Home");
                     } else if (mViewPager.getCurrentItem() == 1) {
-                        page_title.setText("Service Requests");
+                        page_title.setText("My Favorites");
                     } else if (mViewPager.getCurrentItem() == 2) {
-                        page_title.setText("Notifications");
+                        page_title.setText("Service Requests");
                     } else if (mViewPager.getCurrentItem() == 3) {
+                        page_title.setText("Notifications");
+                    }else if (mViewPager.getCurrentItem() == 4) {
                         page_title.setText("Settings");
                     }
                 }

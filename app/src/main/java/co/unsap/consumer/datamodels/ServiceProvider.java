@@ -22,8 +22,8 @@ public class ServiceProvider implements Serializable {
    public String lastName,defaultComment,phone,filePublicId,imageUrl,countryCode,commentUpdatedAt,serviceType,endTime,avgRating,noOfTimesHired,updatedAt,startTime,
             favoriteCount,email,createdAt,accountStatus,userId,role,fullName,firstName,noOfTimesRated,isFavorite;
     public  String serviceName,serviceAddress;
-    public  JSONArray providerServices;
-    public  JSONArray provideraddresses;
+   // public  JSONArray providerServices;
+   // public  JSONArray provideraddresses;
     public  String providercharge;
 
     public ServiceProvider(JSONObject jsonObject){
@@ -58,8 +58,8 @@ public class ServiceProvider implements Serializable {
 
             }
 
-            providerServices = jsonObject.getJSONArray("providerServicesInfo");
-            provideraddresses = jsonObject.getJSONArray("userAddresses");
+           // providerServices = jsonObject.getJSONArray("providerServicesInfo");
+           // provideraddresses = jsonObject.getJSONArray("userAddresses");
 
         }catch (Exception ex){
 

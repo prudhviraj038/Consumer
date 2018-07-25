@@ -7,6 +7,7 @@ import android.util.Log;
 
 import co.unsap.consumer.fragments.DemoFragment;
 import co.unsap.consumer.fragments.HomeFragment;
+import co.unsap.consumer.fragments.MyFavorites;
 import co.unsap.consumer.fragments.ReferFriendFragment;
 import co.unsap.consumer.fragments.ServiceRequestsFragment;
 import co.unsap.consumer.fragments.SettingsFragment;
@@ -38,7 +39,7 @@ public class TabsAdapter extends FragmentStatePagerAdapter {
             return demoFragment;
 
         }
-        case 1:{
+        case 2:{
 
 
             ServiceRequestsFragment serviceRequestsFragment = ServiceRequestsFragment.newInstance(position);
@@ -46,14 +47,23 @@ public class TabsAdapter extends FragmentStatePagerAdapter {
         }
 
 
-        case 2:{
+        case 1:{
+
+
+            MyFavorites notificationFragment = MyFavorites.newInstance(position);
+            return notificationFragment;
+        }
+
+
+
+        case 3:{
 
 
             NotificationFragment notificationFragment = NotificationFragment.newInstance(position);
             return notificationFragment;
         }
 
-        case 3:{
+        case 4:{
             SettingsFragment settingsFragment  = SettingsFragment.newInstance(position);
             return settingsFragment;
         }

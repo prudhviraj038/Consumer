@@ -19,6 +19,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -78,6 +79,16 @@ public class ActivitySearch extends AppCompatActivity {
         hideSoftKeyboard();
 
         lv_search = (ListView) findViewById(R.id.lv_search);
+        lv_search.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Intent intent = new Intent(ActivitySearch.this,ProviderDetailActivity.class);
+                intent.putExtra("serviceProvider",serviceProviders.get(i));
+                startActivity(intent);
+
+            }
+        });
         progress_holder = (LinearLayout) findViewById(R.id.progress_holder);
         progress_holder.setVisibility(View.GONE);
 
